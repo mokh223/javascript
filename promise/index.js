@@ -1,30 +1,28 @@
-let p = new Promise((resolve, reject)=>{
-  let a = 1+1;
-  if (a == 2){
-    resolve("Success");
-  } else {
-    reject('Failed');
-  }
+var p1 = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('one'), 1000);
 });
-/*
-p.then((message)=>{
-  console.log(`This is in the then ${message}`);
-}).catch((message)=>{
-  console.log(`This is in the catch ${message}`);
-})
-*/
-let q = (message) => new Promise((resolve,reject) => {
-  console.log('inside q = ' + message);
-  let a = 1+1;
-  if (a == 2){
-    resolve("Success");
-  } else {
-    reject('Failed');
-  }
+var p2 = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('two'), 2000);
+});
+var p3 = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('three'), 3000);
+});
+var p4 = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('four'), 4000);
+});
+var p5 = new Promise((resolve, reject) => {
+  reject(new Error('reject'));
 });
 
-p.then((message)=>{
-  q(message).then(message => console.log(message)).catch(message => console.log(message));
-}).catch((message)=>{
-  console.log(`This is in the catch ${message}`);
+
+// Using .catch:
+Promise.all([p1, p2, p3, p4, p5])
+.then(values => {
+  console.log(values);
 })
+.catch(error => {
+  console.error(error.message)
+});
+
+//From console:
+//"reject"
