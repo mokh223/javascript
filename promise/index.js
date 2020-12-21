@@ -1,3 +1,11 @@
+let promise = new Promise(function(resolve, reject) {
+  resolve(1);
+  setTimeout(() => resolve(2), 1000);
+  setTimeout(() => resolve(3), 2000);
+});
+
+promise.then((res) => console.log(res));
+
 var p1 = new Promise((resolve, reject) => {
   setTimeout(() => resolve('one'), 1000);
 });
@@ -26,3 +34,4 @@ Promise.all([p1, p2, p3, p4, p5])
 
 //From console:
 //"reject"
+
