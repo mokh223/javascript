@@ -30,8 +30,17 @@ let filterItems = (arr, text) => {
             name : t,
             value : t.indexOf(text)
         };
-    })
-    return result;
+    });
+    console.log(result);
+
+    const result2 = result.map(x=> {
+        return {
+            ...x,
+            hello: 1
+        };
+    });
+    console.log(result2);
+    return result2;
 }
 
 

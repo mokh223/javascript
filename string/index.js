@@ -23,3 +23,9 @@ console.log('substring end');
 console.log('Stringify'.substring(5,8));
 console.log('Stringify'.substring(8,5));
 console.log('Stringify'.slice(5,8));
+
+const name1 = "Zoila Romaguera";
+const name2 = "roma";
+console.log('debug name');
+console.log('Zoila Romaguera'.includes('nirav'));
+console.log(name1.toUpperCase().includes(name2.toUpperCase()));
